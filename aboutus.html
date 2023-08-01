@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins"
+      rel="stylesheet"
+    />
+    <title>JKB ENGG</title>
+    <link rel="icon" type="image/x-icon" href="images/jkb_logo.ico" />
+    <!-- <link rel="stylesheet" href="aboutus.css" id="index-css" /> -->
+    <style>
+      html,
+      body,
+      div,
+      span,
+      applet,
+      object,
+      iframe,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      p,
+      blockquote,
+      pre,
+      a,
+      abbr,
+      acronym,
+      address,
+      big,
+      cite,
+      code,
+      del,
+      dfn,
+      em,
+      img,
+      ins,
+      kbd,
+      q,
+      s,
+      samp,
+      small,
+      strike,
+      strong,
+      sub,
+      sup,
+      tt,
+      var,
+      b,
+      u,
+      i,
+      center,
+      dl,
+      dt,
+      dd,
+      ol,
+      ul,
+      li,
+      fieldset,
+      form,
+      label,
+      legend,
+      table,
+      caption,
+      tbody,
+      tfoot,
+      thead,
+      tr,
+      th,
+      td,
+      article,
+      aside,
+      canvas,
+      details,
+      embed,
+      figure,
+      figcaption,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      output,
+      ruby,
+      section,
+      summary,
+      time,
+      mark,
+      audio,
+      video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+      }
+
+      /* HTML5 display-role reset for older browsers */
+      article,
+      aside,
+      details,
+      figcaption,
+      figure,
+      footer,
+      header,
+      hgroup,
+      menu,
+      nav,
+      section {
+        display: block;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        background-color: #020f16 !important;
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+      }
+
+      body {
+        line-height: 1;
+        margin: 0;
+        padding: 0;
+        background-color: #020f16 !important;
+        font-family: "Poppins", sans-serif;
+        letter-spacing: 0.04rem;
+        color: #ececec;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      ol,
+      ul {
+        list-style: none;
+      }
+
+      blockquote,
+      q {
+        quotes: none;
+      }
+
+      blockquote:before,
+      blockquote:after,
+      q:before,
+      q:after {
+        content: "";
+        content: none;
+      }
+
+      table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+
+      /* Works on Firefox */
+      * {
+        scrollbar-width: auto;
+        scrollbar-color: #8d9599 #0c171c;
+      }
+
+      /* Works on Chrome, Edge, and Safari */
+      *::-webkit-scrollbar {
+        width: 0.3rem;
+      }
+
+      *::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0);
+      }
+
+      *::-webkit-scrollbar-thumb {
+        background-color: #8d9599;
+        border-radius: 0.6rem;
+      }
+
+      * {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -moz-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+
+      #container {
+        max-width: 2000px;
+        width: 100%;
+        padding: 5rem 0 2.5rem;
+        margin: 0 auto;
+      }
+
+      nav {
+        position: fixed;
+        inset: 0 0 auto 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 0.3rem 2.5%;
+        height: 2.5rem;
+        z-index: 2;
+        background-color: #020f16;
+        box-shadow: 0 0.25rem 0.4rem 0 rgba(0, 0, 0, 0.2);
+      }
+
+      #nav-left {
+        display: flex;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      #menu {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+      }
+
+      #cross-icon {
+        display: none;
+      }
+
+      #jkb-logo-menu {
+        display: none;
+      }
+
+      #menu-icon {
+        display: none;
+      }
+
+      #menu > li > a {
+        text-decoration: none;
+        cursor: pointer;
+        color: white;
+        font-size: 0.9rem;
+        font-weight: bold;
+        padding: 0.5rem 0.75rem;
+      }
+
+      #courses > img {
+        transform: scale(0.8) translateY(-0.1rem);
+      }
+
+      .rotatearrow {
+        rotate: 180deg;
+        transform: scale(0.8) translateY(0.1rem) !important;
+      }
+
+      #menu > li:nth-of-type(2) {
+        position: relative;
+      }
+
+      #dropdown {
+        position: absolute;
+        left: 0;
+        top: 2rem;
+        font-size: 1rem;
+        width: max-content;
+        background-color: #17242b;
+        border-radius: 0.5rem;
+        overflow: hidden;
+      }
+
+      .hidden {
+        max-height: 0;
+        transition: max-height ease-in-out 0.3s;
+      }
+
+      .show {
+        max-height: 30rem;
+        transition: max-height ease-in-out 0.3s;
+      }
+
+      #dropdown > a {
+        display: block;
+        color: #ececec;
+        text-decoration: none;
+        font-size: 0.8rem;
+        font-weight: bold;
+        padding: 1rem 0.75rem;
+      }
+
+      #dropdown > a:hover {
+        background-color: #1c2a31;
+        color: #fa8b26;
+      }
+
+      #menu > li > a:hover {
+        background-color: #fa8b26;
+        border-radius: 0.2rem 0.6rem;
+      }
+
+      #about-us {
+        background-color: #fa8b26;
+        border-radius: 0.2rem 0.6rem;
+      }
+
+      #jkb-logo {
+        height: 2.2rem;
+        width: 3.8rem;
+      }
+
+      #social {
+        display: flex;
+        background-color: #0c171c;
+        border-radius: 1.25rem;
+        width: 15rem;
+        height: 2.4rem;
+        justify-content: space-around;
+        align-items: center;
+      }
+
+      .social-icons {
+        height: 1.75rem;
+        width: 1.75rem;
+        margin: 0 0.25rem;
+      }
+
+      #phone {
+        display: none;
+      }
+
+      /* About-us page content */
+      #about-sec {
+        margin: 0 5%;
+        background-color: #020f16;
+      }
+
+      #about-heading {
+        font-size: 2.4rem;
+        font-weight: bolder;
+        text-align: center;
+        color: #fa8b26;
+        margin-bottom: 2.4rem;
+      }
+
+      .para {
+        font-size: 1.1rem;
+        line-height: 1.3rem;
+      }
+
+      #grid-container {
+        margin: 3.6rem 0;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .card {
+        padding: 0 0 0.6rem 0.6rem;
+        border-bottom: 0.1rem solid #a0a0a0;
+        border-left: 0.1rem solid #a0a0a0;
+        display: grid;
+        min-height: 13rem;
+        grid-template-columns: 33% 66%;
+      }
+
+      .photo-box {
+        background-color: #17242b;
+        margin-right: 0.6rem;
+      }
+
+      .photo-box + div {
+        overflow: hidden;
+      }
+
+      .name {
+        font-size: 1.25rem;
+        font-weight: 900;
+        color: #fa8b26;
+        margin: 0.5rem 0;
+      }
+
+      .post {
+        font-size: 1.1rem;
+        color: white;
+        margin-bottom: 0.6rem;
+      }
+
+      .about {
+        font-size: 0.8rem;
+        text-align: justify;
+        color: #a5a5a5;
+        line-height: 1rem;
+      }
+
+      @media only screen and (min-width: 1200px) {
+        html {
+          font-size: 14px;
+        }
+      }
+
+      @media only screen and (min-width: 1400px) {
+        html {
+          font-size: 16px;
+        }
+      }
+
+      @media only screen and (min-width: 1600px) {
+        html {
+          font-size: 18px;
+        }
+      }
+
+      @media only screen and (min-width: 1800px) {
+        html {
+          font-size: 20px;
+        }
+      }
+
+      @media only screen {
+        /* For Tablet View */
+        @media (max-width: 1200px) {
+          html {
+            font-size: 13px;
+          }
+
+          #container {
+            padding: 7rem 0 3rem;
+          }
+
+          nav {
+            justify-content: flex-start;
+            height: 4rem;
+          }
+
+          #nav-left {
+            width: 100%;
+            justify-content: space-between;
+          }
+
+          #menu-icon {
+            display: block;
+            width: 2.5rem;
+            min-width: 2rem;
+            aspect-ratio: 1/1;
+            cursor: pointer;
+          }
+
+          #jkb-logo {
+            margin-right: auto;
+            width: clamp(3.33rem, 4.5rem, 4.7rem);
+            height: 2.5rem;
+            aspect-ratio: 1.7;
+          }
+
+          #social {
+            height: 3rem;
+            width: 18rem;
+          }
+
+          .social-icons {
+            height: 2rem;
+            width: 2rem;
+          }
+
+          #phone {
+            display: block;
+          }
+
+          #overlay {
+            inset: 0;
+            position: fixed;
+            display: none;
+            z-index: 3;
+            background-color: rgba(0, 0, 0, 0.6);
+          }
+
+          #menu {
+            background-color: #17242b;
+            position: fixed;
+            inset: 0 60% 0 0;
+            display: block;
+            z-index: 5;
+            flex-direction: column;
+            overflow-y: auto;
+            -ms-overflow-style: none; /* for Internet Explorer, Edge */
+            scrollbar-width: none; /* for Firefox */
+          }
+
+          #menu::-webkit-scrollbar {
+            width: 0 !important;
+          }
+
+          .showmenu {
+            transform: translateX(0);
+            transition: transform ease-in-out 0.15s;
+          }
+
+          .hidemenu {
+            transform: translateX(-100%);
+            transition: transform ease-in-out 0.15s;
+          }
+
+          #cross-icon {
+            display: block;
+            margin: 1.2rem;
+            height: 2.5rem;
+            width: 2.5rem;
+            cursor: pointer;
+          }
+
+          #jkb-logo-menu {
+            display: block;
+            margin: 2rem auto 1rem;
+            height: 5rem;
+            width: 8rem;
+          }
+
+          #menu > li {
+            margin: 4rem 1.5rem;
+          }
+
+          #menu > li > a {
+            font-size: 1.25rem;
+          }
+
+          #menu > li > a:active {
+            color: #fa8b26;
+          }
+
+          #menu > li > a:hover {
+            background-color: transparent;
+          }
+
+          #courses {
+            padding-bottom: 0.5rem;
+          }
+
+          #dropdown {
+            position: static;
+            box-sizing: border-box;
+            background-color: transparent;
+          }
+
+          #dropdown > a {
+            font-size: 0.9rem;
+            padding-left: 2rem;
+          }
+
+          #dropdown > a:hover {
+            background-color: transparent;
+            color: white;
+          }
+
+          #dropdown > a:first-of-type {
+            padding-top: 2rem;
+          }
+
+          #dropdown > a:last-of-type {
+            padding-bottom: 0;
+          }
+
+          #about-us {
+            background-color: #17242b;
+            color: #fa8b26 !important;
+          }
+
+          /* About-us page content */
+          #grid-container {
+            grid-template-columns: 1fr 1fr;
+          }
+
+          /* For Mobile View */
+          @media (max-width: 600px) {
+            html {
+              font-size: 12px;
+            }
+
+            #menu {
+              inset: 0 30% 0 0;
+            }
+
+            /* About-us page content */
+            #grid-container {
+              grid-template-columns: 1fr;
+            }
+
+            @media (max-width: 400px) {
+              html {
+                font-size: 11px;
+              }
+
+              @media (max-width: 300px) {
+                html {
+                  font-size: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <nav>
+        <div id="nav-left">
+          <img
+            id="menu-icon"
+            onclick="showMenu()"
+            src="images/menu.png"
+            alt="="
+          />
+          <img
+            id="jkb-logo"
+            src="images/jkb_logo.png"
+            alt="jkb-logo"
+            draggable="false"
+          />
+          <div id="social">
+            <div id="whatsapp">
+              <a
+                href="https://api.whatsapp.com/send/?phone=919768455222&text=Hi&type=phone_number&app_absent=0"
+                target="_blank"
+                draggable="false"
+                ><img
+                  class="social-icons"
+                  src="images/whatsapp.png"
+                  draggable="false"
+              /></a>
+            </div>
+            <div id="phone">
+              <a href="tel:+919768455222" target="_blank" draggable="false"
+                ><img
+                  class="social-icons"
+                  src="images/phone.png"
+                  draggable="false"
+              /></a>
+            </div>
+            <div id="youtube">
+              <a
+                href="https://www.youtube.com/channel/UC0lmhygv8wJTQbVjF-6QUVg"
+                target="_blank"
+                draggable="false"
+                ><img
+                  class="social-icons"
+                  src="images/youtube.png"
+                  draggable="false"
+              /></a>
+            </div>
+            <div id="insta">
+              <a
+                href="https://www.instagram.com/jkb_education_group/"
+                target="_blank"
+                draggable="false"
+                ><img
+                  class="social-icons"
+                  src="images/instagram.png"
+                  draggable="false"
+              /></a>
+            </div>
+            <div id="linkdn">
+              <a
+                href="https://in.linkedin.com/company/jkb-education-group?trk=public_profile_topcard-current-company"
+                target="_blank"
+                draggable="false"
+                ><img
+                  class="social-icons"
+                  src="images/linkedin.png"
+                  draggable="false"
+              /></a>
+            </div>
+          </div>
+        </div>
+        <div id="overlay"></div>
+        <ul id="menu" class="hidemenu">
+          <img id="cross-icon" src="images/cross.png" alt="=" />
+          <img
+            id="jkb-logo-menu"
+            src="images/jkb_logo.png"
+            alt="jkb-logo"
+            draggable="false"
+          />
+          <li><a id="home" href="home.html" draggable="false">Home</a></li>
+          <li onclick="showDropdown()">
+            <a id="courses" href="#" draggable="false"
+              >Courses&nbsp;<img src="images/drop_down.png" draggable="false"
+            /></a>
+            <div id="dropdown" class="hidden">
+              <a href="#" draggable="false">Engg. Admission Counselling</a>
+              <a href="#" draggable="false">1st Year Programming</a>
+              <a href="#" draggable="false">1st Year Engg. Coaching</a>
+              <a href="#" draggable="false">IT Services for Start-Up</a>
+              <a href="#" draggable="false">2nd Year Programming</a>
+              <a href="#" draggable="false">MS in US and Europe</a>
+              <a href="#" draggable="false">3rd Year Programming</a>
+              <a href="#" draggable="false">Project and Placement</a>
+              <a href="#" draggable="false">Youth Empowerment Hub</a>
+              <a href="#" draggable="false">Financial Litracy</a>
+            </div>
+          </li>
+          <li>
+            <a id="counselling" href="#" draggable="false">Counselling</a>
+          </li>
+          <li>
+            <a id="it-services" href="itservices.html" draggable="false"
+              >IT Services</a
+            >
+          </li>
+          <li>
+            <a id="about-us" href="aboutus.html" draggable="false">About Us</a>
+          </li>
+        </ul>
+      </nav>
+      <section id="about-sec">
+        <div id="about-heading">About Us</div>
+        <p class="para">
+          Welcome to JKB Educational Institute, the epitome of excellence and
+          empowerment in the field of engineering education in India. Led by the
+          visionary director and esteemed tutor, Mr. Vinayak Shete, we are
+          driven by a singular mission to uplift and empower the country's
+          youth. Since our establishment in 2011, we have continuously evolved,
+          creating a nurturing environment and providing outstanding facilities
+          for our students' holistic development.
+        </p>
+
+        <div id="grid-container">
+          <div class="card">
+            <div class="photo-box"></div>
+            <div>
+              <div class="name">Prof Vinayak Shete</div>
+              <div class="post">Director</div>
+              <div class="about">
+                Mr. Vinayak Shete, the visionary director and esteemed lecturer
+                at JKB Educational & IT Services, has positively influenced the
+                lives of thousands of aspiring engineers with his vast teaching
+                experience and deep-rooted passion for yoga and meditation.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="photo-box"></div>
+            <div>
+              <div class="name">Prof N H Dubey</div>
+              <div class="post">Author</div>
+              <div class="about">
+                Prof. N H Dubey is a renowned Author who has written many
+                textbooks like Engg. Mechanics, and Engg. Drawing/Graphics. With
+                his vast teaching experience and expertise, he has left a
+                lasting impact on the engineering journey of numerous students.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="photo-box"></div>
+            <div>
+              <div class="name">Ms Poonam</div>
+              <div class="post">Director</div>
+              <div class="about">
+                Director at JKB & Trainer of Cloud Computing & DevOps Courses, A
+                seasoned cloud development consultant with extensive expertise
+                in architecting scalable and secure cloud solutions, providing
+                strategic guidance to businesses for optimal cloud adoption and
+                maximizing operational efficiency.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="photo-box"></div>
+            <div>
+              <div class="name">Amol More</div>
+              <div class="post">Professor</div>
+              <div class="about">
+                Amol Mane, an Engineering Graduate from VJTI, Mumbai is an
+                expert faculty who provides coaching for Ist year Engg. subjects
+                and competitive exams like GATE. Moreover, he is a working
+                professional in the construction industry.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="photo-box"></div>
+            <div>
+              <div class="name">Abhishek Satre</div>
+              <div class="post">Sr Manager (Full Stack Dev)</div>
+              <div class="about">
+                Abhishek Satre is a Sr. Manager having 6+ years of working
+                experience in the IT industry as a Full-Stack Web Developer. He
+                is a master trainer for the Industrial Courses at JKB.
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="photo-box"></div>
+            <div>
+              <div class="name">Anand Dubey</div>
+              <div class="post">Sr Manager (Mobile App Dev)</div>
+              <div class="about">
+                Anand Dubey is a working IT professional and an expert Mobile
+                Application Developer. Moreover, he is a master trainer for the
+                Industrial Courses at JKB.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="para">
+          <p>
+            At JKB, we believe in delivering the best learning experiences with
+            renowned authors like Prof. N H Dubey, ensuring comprehensive study
+            materials and ample growth opportunities for our students. With Mr.
+            Vinayak Shete's vast teaching experience, we have positively
+            influenced the lives of thousands of aspiring engineers. Moreover,
+            as a testament to our commitment to excellence, we cater to the
+            needs of studying various programming languages and offer corporate
+            linguistic training. <br /><br />
+            Beyond academics, we embrace spirituality and mindfulness. Mr.
+            Vinayak Shete is actively associated with The Art Of Living
+            Foundation and serves as a dynamic youth teacher at the AOL. His
+            deep-rooted passion for yoga and meditation resonates within the
+            fabric of our institute, fostering a harmonious and balanced
+            educational experience. <br /><br />
+            As you explore our website, you will witness the remarkable success
+            stories that our institute has nurtured, leaving an indelible mark
+            on the educational landscape. Join us at JKB Educational Institute,
+            where knowledge meets inspiration, and dreams turn into reality.
+            Together, Let Us Embark on a Transformative Journey of Education and
+            Empowerment.
+          </p>
+        </div>
+      </section>
+    </div>
+    <!-- <script src="script.js"></script> -->
+    <script>
+      function showDropdown() {
+        let dropdown = document.getElementById("dropdown");
+        let arrow = document.querySelector("#courses > img");
+        arrow.classList.toggle("rotatearrow");
+        dropdown.classList.toggle("hidden");
+        dropdown.classList.toggle("show");
+        window.onclick = (e) => {
+          hideMenu(e);
+          if (!e.target.matches("#courses")) {
+            if (!e.target.matches("#courses > img")) {
+              arrow.classList.remove("rotatearrow");
+              dropdown.classList.remove("show");
+              dropdown.classList.add("hidden");
+            }
+          }
+        };
+      }
+
+      function showMenu() {
+        let menu = document.getElementById("menu");
+        let body = document.querySelector("body");
+        let overlay = document.getElementById("overlay");
+        let cross = document.getElementById("cross-icon");
+        let arrow = document.querySelector("#courses > img");
+        menu.classList.toggle("hidemenu");
+        menu.classList.toggle("showmenu");
+        body.style.overflow = "hidden";
+        overlay.style.display = "block";
+        cross.onclick = () => {
+          body.style.overflow = "auto";
+          overlay.style.display = "none";
+          menu.classList.toggle("hidemenu");
+          menu.classList.toggle("showmenu");
+        };
+        window.onclick = (e) => {
+          hideMenu(e);
+        };
+      }
+
+      function hideMenu(e) {
+        let menu = document.getElementById("menu");
+        let body = document.querySelector("body");
+        let overlay = document.getElementById("overlay");
+        let arrow = document.querySelector("#courses > img");
+        if (
+          e.target.matches("#overlay") ||
+          e.target.matches("#menu > li > a") ||
+          e.target.matches("#dropdown a")
+        ) {
+          if (!e.target.matches("#courses")) {
+            body.style.overflow = "auto";
+            overlay.style.display = "none";
+            menu.classList.toggle("hidemenu");
+            menu.classList.toggle("showmenu");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
