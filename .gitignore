@@ -1,4 +1,2 @@
-/home.css/
-/itservices.css/
-/aboutus.css/
-/script.js/
+*.css
+script.js
