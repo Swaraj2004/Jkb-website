@@ -1,5 +1,5 @@
-import express from "express";
-import handlerBar from "express-handlebars";
+const express = require("express");
+const handlerBar = require("express-handlebars");
 // const path = require("path");
 const port = 3000;
 const app = express();
